@@ -19,13 +19,14 @@ class Main extends Application {
     val scene = new Scene(root, 800, 600, Color.BLACK)
     primaryStage.setScene(scene)
 
-    val circles = new Group()
-    val circleNum = getParameters.getNamed.getOrDefault("num", "100").toInt
+    val circles     = new Group()
+    val circleNum   = getParameters.getNamed.getOrDefault("num", "30").toInt
+    val circleColor = getParameters.getNamed.getOrDefault("color", "white")
 
     for (i <- 1 to circleNum) {
       val circle = new Circle(150, Color.web("white", 0.05))
       circle.setStrokeType(StrokeType.OUTSIDE)
-      circle.setStroke(Color.web("white", 0.16))
+      circle.setStroke(Color.web(circleColor, 0.16))
       circles.getChildren().add(circle)
     }
 
